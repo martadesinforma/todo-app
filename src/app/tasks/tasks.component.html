@@ -1,1 +1,9 @@
-<p>tasks works!</p>
+<ul>
+  @for(task of userTasks; track task.id) { <!--  El atributo track sugiere que se está intentando optimizar la iteración para mejorar el rendimiento -->
+    <li>
+      <app-task [task]="task"></app-task> <!-- Se está utilizando un componente hijo (app-task) para representar cada tarea. El task se pasa al componente app-task como una propiedad de entrada  -->
+    </li>
+  }@empty { <!-- maneja el caso cuando userTasks está vacío. -->
+    <p>There are no tasks yet. Start adding some!</p>
+  }
+</ul>

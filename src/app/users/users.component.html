@@ -1,1 +1,7 @@
-<p>users works!</p>
+<ul id="users">
+  @for (user of users; track user.id) {
+    <li>
+      <app-user [user]="user"></app-user> <!-- se asignan los valores de user a un componente app-user -->
+    </li>
+  }
+</ul>

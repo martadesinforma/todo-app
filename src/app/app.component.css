@@ -1,4 +1,4 @@
-main {
+main { /* main es una etiqueta del app.component.html */
   width: 90%;
   max-width: 50rem;
   margin: 2.5rem auto;

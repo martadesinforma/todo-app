@@ -6,5 +6,5 @@ ul {
   flex-direction: column;
   gap: 1rem;
   max-height: 50vh;
-  overflow: auto;
+  overflow: auto; /* Permite que el navegador agregue barras de desplazamiento (tanto vertical como horizontal) al contenedor solo si el contenido se desborda. */
 }

@@ -18,7 +18,7 @@ h2 {
   margin: 0;
   font-size: 0.9rem;
   width: 60%;
-  text-wrap: balance;
+  text-wrap: balance; /* Este valor tiene como objetivo equilibrar el texto dentro del contenedor para evitar que las líneas sean demasiado cortas o demasiado largas */
 }
 
 menu {
@@ -27,7 +27,7 @@ menu {
 }
 
 menu a {
-  font: inherit;
+  font: inherit; /* se está diciendo que el elemento debe heredar las propiedades de fuente del elemento padre. Esto incluye varias propiedades relacionadas con el texto, tales como: font-family, font-size, font-weight, font-style, line-height (La altura de la línea del texto)  */
   cursor: pointer;
   color: #181223;
   background-color: #9965dd;

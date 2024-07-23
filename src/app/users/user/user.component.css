@@ -1,21 +1,22 @@
 div {
   border-radius: 6px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+  overflow: hidden; /* Oculta cualquier contenido que se desborde fuera de los límites del <div>. Esto es útil para evitar que el contenido exceda las esquinas redondeadas. */
 }
 
 a {
-  display: flex;
+  display: flex;/*  permite alinear sus elementos hijos en una fila  */
   align-items: center;
   gap: 0.5rem;
   padding: 0.35rem 0.5rem;
   background-color: #433352;
   color: #c3b3d1;
   border: none;
-  font: inherit;
+  font: inherit; /* Hace que el <a> herede las propiedades de fuente del elemento padre. Esto asegura consistencia en el estilo de fuente. */
   cursor: pointer;
   width: 100%;
-  min-width: 10rem;
+  min-width: 10rem; /* Establece un ancho mínimo de 10 rems para el <a>, asegurando que no se reduzca por debajo de este tamaño.
+  */
   text-align: left;
   text-decoration: none;
 }
@@ -29,7 +30,7 @@ a:active,
 
 img {
   width: 2rem;
-  object-fit: contain;
+  object-fit: contain; /* Escala la imagen para que encaje dentro del contenedor sin recortarla y manteniendo la relación de aspecto. E */
   border-radius: 50%;
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
 }

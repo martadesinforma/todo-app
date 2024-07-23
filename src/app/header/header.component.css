@@ -20,7 +20,7 @@ header {
 
 img {
   width: 3.5rem;
-  object-fit: contain;
+  object-fit: contain; /* No se recorta ninguna parte del contenido, y se mostrará completamente dentro del contenedor. */
 }
 
 h1 {
@@ -32,7 +32,7 @@ h1 {
 p {
   margin: 0;
   font-size: 0.8rem;
-  text-wrap: balance;
+  text-wrap: balance; /* Busca distribuir el texto de manera equilibrada entre las líneas, mejorando la legibilidad al evitar diferencias significativas en la longitud de las líneas. */
 }
 
 @media (min-width: 768px) {

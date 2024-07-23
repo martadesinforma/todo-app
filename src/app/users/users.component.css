@@ -1,10 +1,10 @@
 ul {
-  list-style: none;
+  list-style: none; /* Elimina los puntos (viñetas) que normalmente aparecen antes de cada elemento de la lista (<li>) en una lista desordenada. */
   margin: 0;
   padding: 0;
-  display: flex;
+  display: flex; /* Esto permite que los elementos hijos (<li>) se alineen en una fila por defecto  */
   gap: 0.5rem;
-  overflow: auto;
+  overflow: auto; /* Hace que el contenido desbordado del contenedor <ul> sea desplazable. Si los elementos dentro del <ul> no caben en el espacio disponible, aparecerán barras de desplazamiento horizontal para permitir la visualización del contenido completo. */
 }
 
 @media (min-width: 768px) {

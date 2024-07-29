@@ -35,10 +35,10 @@ export class TasksService {
 
   //Inicializa el servicio y carga datos desde localStorage si están disponibles.
   constructor() {
-    const tasks = localStorage.getItem('tasks'); //Obtiene el valor almacenado en localStorage bajo la clave 'tasks'
+    const tasks = localStorage.getItem('tasks'); //Obtiene el valor almacenado en localStorage bajo la clave 'tasks'. En un principio, el localStorage no tendrá ningun valor en ninguna clave tasks. El método saveTasks() cuando se llame va a ser el que guarde el estado actual de las tareas en localStorage.
 
     if (tasks) { //Verifica si se encontraron tareas en localStorage
-      this.tasks.set(JSON.parse(tasks)); //Si hay tareas, las parsea desde JSON y las establece en la señal tasks. Esto actualiza el estado interno del servicio con los datos almacenados.
+      this.tasks.set(JSON.parse(tasks)); //Si hay tareas, las parsea, convirtiendo una cadena JSON en un objeto de JavaScript y las establece en la señal tasks. Esto actualiza el estado interno del servicio con los datos almacenados.
     }
   }
 
@@ -63,7 +63,7 @@ export class TasksService {
   //Elimina una tarea de la lista basándose en el id
   removeTask(id: string) {
     this.tasks.update((prevTasks) => //Usa update para filtrar la lista de tareas y eliminar la tarea cuyo id coincida con el proporcionado.
-      prevTasks.filter((task) => task.id !== id)
+      prevTasks.filter((task) => task.id !== id) //como filter devuleve un nuevo array, devuelve una nueva referencia de array que contiene solo los elementos que pasan la condición del filtro,  no tenemos que crearnos un array y hacer una copia del ...prevTasks como en el método addTask()
     );
     this.saveTasks(); //Llama al método saveTasks para actualizar localStorage con la lista de tareas actualizada.
   }
@@ -72,6 +72,6 @@ export class TasksService {
 
   //Guarda el estado actual de las tareas en localStorage.
   private saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks())); //Convierte el estado actual de tasks a JSON y lo almacena en localStorage bajo la clave 'tasks'
+    localStorage.setItem('tasks', JSON.stringify(this.tasks())); //Convierte el estado actual de tasks con valor de JavaScript en una cadena JSONy lo almacena en localStorage bajo la clave 'tasks'
   }
 }

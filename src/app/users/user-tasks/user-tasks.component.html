@@ -1,11 +1,11 @@
 <section id="tasks">
   <header>
-    <h2>USERS Tasks</h2>
+    <h2>{{userName()}}</h2>
     <menu>
-      <a>Add Task</a>
+      <a routerLink="tasks/new">Add Task</a> <!-- para no tener que escribir [routerLink]="['/users', user().id, 'tasks']" y que no tenemos ninguna propiedad user() en nuestro archivo .ts y este código fallaría, escribo unicamente routerLink="tasks/new" para crearme un enlace relativo a la ruta actualmente activada. Este enlace en realidad nos crea la ruta completa http://localhost:52951/users/u5/tasks/new  -->
     </menu>
   </header>
 
-  <p>Todo ...</p>
+  <router-outlet></router-outlet> <!-- Se muestran los componentes hijos de UserTasksComponent, en este caso, el componente TasksComponent o el componente NewTaskComponent -->
 </section>
 

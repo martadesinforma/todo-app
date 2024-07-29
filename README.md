@@ -10,7 +10,7 @@
 ## Este es un breve listado del contenido del proyecto standalone:
 
 1. Uso de señales (signals). input() para crear un nueva señal, uso de computed().
-2. Uso de rutas padres e hijas (app.routes.ts)
+2. Uso de rutas padres,  hijas y ruta comodín '**' (app.routes.ts)
 3. Uso del provider withComponentInputBinding() y del  paramsInheritanceStrategy: 'always' (app.config.ts)
 4. Uso de routerLink y routerLinkActive (.html)
 5. Uso de localStorage (tasks.service.ts)

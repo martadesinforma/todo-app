@@ -1,5 +1,5 @@
 <div>
-  <a>
+  <a [routerLink]="['/users', user().id, 'tasks']" routerLinkActive="selected"> <!-- si escribieramos [href]="['/users', user().id, 'tasks']" para la navegación, esto provoca una recarga completa de la página, lo que resulta en una experiencia de usuario menos eficiente. En cambio utilizando [routerLink]="['/users', user().id, 'tasks']", navegamos  entre rutas de la aplicación sin recargar la página completa. Angular concatenará automáticamente estos segmentos de ruta, asegurando que haya un único / entre ellos si es necesario. Así, ['/users', user().id, 'tasks'] se convertirá en http://localhost:52951/users/u1/tasks, http://localhost:52951/users/u2/tasks... routerLinkActive  se usa para aplicar clases CSS a un elemento cuando la ruta asociada está activa.-->
     <img [src]="imagePath()" [alt]="user().name" />
     <span>{{ user().name }}</span>
   </a>

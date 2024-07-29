@@ -1,5 +1,7 @@
 <h2>Add Task</h2>
 <form (ngSubmit)="onSubmit()"> <!-- Usa el binding de Angular para ejecutar el método onSubmit() del componente cuando el formulario se envía (es decir, cuando el usuario hace clic en el botón de enviar o presiona Enter mientras está enfocado en un campo del formulario). -->
+
+<!-- En la plantilla HTML, Angular maneja el binding con ngModel, lo que te permite usar la señal directamente como una propiedad sin necesidad de llamarla como una función. -->
   <p>
     <label for="title">Title</label>
     <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" /> <!-- [(ngModel)]="enteredTitle": Two-way data binding con la propiedad enteredTitle del componente. Esto significa que cualquier cambio en el campo de entrada actualizará enteredTitle, y cualquier cambio en enteredTitle se reflejará en el campo de entrada. -->
@@ -26,7 +28,7 @@
   </p>
 
   <p class="actions">
-    <a>Cancel</a>
+    <a routerLink = "../">Cancel</a> <!-- El valor ../ en el atributo routerLink indica que el enlace debe navegar a la ruta relativa de nivel superior. Por ejemplo, si estás en una vista que tiene la ruta /productos/123 y haces clic en el enlace con routerLink="../", Angular intentará redirigirte a /productos, que es el nivel superior de la ruta actual  -->
     <button type="submit">Create</button> <!--  Botón para enviar el formulario. Su tipo submit envía el formulario, lo que a su vez activa el método onSubmit() en el componente. -->
   </p>
 </form>

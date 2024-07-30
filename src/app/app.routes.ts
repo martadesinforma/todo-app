@@ -15,6 +15,11 @@ export const routes: Routes = [
     component: UserTasksComponent, //Sin embargo, Angular necesita saber dónde en el DOM debe insertar este componente cuando la url sea  http://localhost:52951/users/u1/tasks, http://localhost:52951/users/u2/tasks...  Aquí es donde entra en juego router-outlet. En este caso lo vamos a insertar en el app.component.html para que se muestre en la pagina principal.
     children: [
       {
+        path: '', //path: '' significa cuando no se especifica ninguna subruta, es decir,  cuando se accede a la ruta users/:userId sin ninguna ruta hija adicional
+        redirectTo:'tasks',
+        pathMatch: 'full' //asegura que la redirección a tasks solo ocurra si no hay ningún otro segmento en la URL después de users/:userId.
+      },
+      {
         path: 'tasks', //esto significa que cuando la URL coincide con http://localhost:52951/users/u1/tasks, http://localhost:52951/users/u2/tasks... Angular debe mostrar el TasksComponent
         component: TasksComponent //Sin embargo, Angular necesita saber dónde en el DOM debe insertar este componente cuando la url sea  http://localhost:52951/users/u1/tasks, http://localhost:52951/users/u2/tasks...  Aquí es donde entra en juego router-outlet. En este caso lo vamos a insertar en el user-tasks.component.html para que se muestre en la pagina padre
       },
@@ -27,6 +32,6 @@ export const routes: Routes = [
   // si cuando ingresas una URL que no existe, tu aplicación redirige a la url base http://localhost:4200, es porque no tienes una ruta que maneje URLs no definidas. Debes agregar una ruta comodín (path: '**') al final de tu configuración de rutas para manejar estas URLs no definidas:
   {
     path: '**', //es una ruta comodín que se usa para capturar cualquier URL que no coincida con ninguna de las rutas definidas anteriormente en la configuración de rutas de Angular.
-    component:NotFoundComponent
+    component:NotFoundComponent //Angular necesita saber dónde en el DOM debe insertar este componente cuando la url sea invalida. Aquí es donde entra en juego router-outlet. En este caso lo vamos a insertar en el app.component.html para que se muestre en la pagina principal.
   }
 ];

@@ -12,5 +12,5 @@
 1. Uso de señales (signals). input() para crear un nueva señal, uso de computed().
 2. Uso de rutas padres,  hijas y ruta comodín '**' (app.routes.ts)
 3. Uso del provider withComponentInputBinding() y del  paramsInheritanceStrategy: 'always' (app.config.ts)
-4. Uso de routerLink y routerLinkActive (.html)
+4. Uso de routerLink, routerLinkActive, [queryPrams] (.html)
 5. Uso de localStorage (tasks.service.ts)

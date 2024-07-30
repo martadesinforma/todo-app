@@ -1,4 +1,9 @@
-
+<p>
+  <a routerLink="./" [queryParams]="{order: order() === 'asc' ? 'desc' : 'asc'}"> <!-- ./ significa que se navega a la ruta actual. Es útil para actualizar o agregar parámetros de consulta sin cambiar la ruta base actual. [queryParams]="{order: 'asc'}" se usa para especificar los parámetros de consulta que se agregarán a la URL. Cuando el usuario hace clic en este enlace, Angular Router actualizará la URL de la aplicación para incluir el parámetro de consulta order=asc. Por ejemplo, si la URL actual es http://localhost:4200/users/u1/tasks,  al hacer clic en el enlace, la URL cambiará a http://localhost:4200/users/u1/tasks?order=asc -->
+  <!-- Cuando pulses por primera vez el boton Sort Ascending, pasaremos de estar en la ruta `http://localhost:4200/users/u1/tasks` a estar en la ruta `http://localhost:4200/users/u1/tasks?order=asc`. Cuando ahora pulsemos el boton Sort Descending (ha cambiado el texto), pasaremos de estar en la ruta `http://localhost:4200/users/u1/tasks?order=asc` a estar en la ruta `http://localhost:4200/users/u1/tasks?order=desc` -->
+    Sort {{order() === 'asc'? 'Descending' : 'Ascending'}}
+  </a>
+</p>
 <ul>
   @for(task of userTasks(); track task.id) { <!--  El atributo track sugiere que se está intentando optimizar la iteración para mejorar el rendimiento -->
     <li>

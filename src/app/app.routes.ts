@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { resolveUserName } from './users/resolve-user-name';
 import { resolveUserTasks } from './tasks/resolve-user-tasks';
 import { resolveTitle } from './users/resolve-title';
+import { canLeaveEditPage } from './tasks/tasks.guard';
 
 export const routes: Routes = [
   {
@@ -42,9 +43,9 @@ export const routes: Routes = [
       {
         path: 'tasks/new', //esto significa que cuando la URL coincide con http://localhost:52951/users/u1/tasks/new, http://localhost:52951/users/u2/tasks/new... Angular debe mostrar el NewTaskComponent
         component: NewTaskComponent, //Sin embargo, Angular necesita saber dónde en el DOM debe insertar este componente cuando la url sea  http://localhost:52951/users/u1/tasks/new, http://localhost:52951/users/u2/tasks/new...  Aquí es donde entra en juego router-outlet. En este caso lo vamos a insertar en el user-tasks.component.html para que se muestre en la pagina padre
+        canDeactivate: [canLeaveEditPage]//Es un guard. La idea detrás de poder desactivar una ruta es que podemos controlar si a un usuario se le permite salir de una página o no
       }
     ],
-
   },
   // si cuando ingresas una URL que no existe, tu aplicación redirige a la url base http://localhost:4200, es porque no tienes una ruta que maneje URLs no definidas. Debes agregar una ruta comodín (path: '**') al final de tu configuración de rutas para manejar estas URLs no definidas:
   {

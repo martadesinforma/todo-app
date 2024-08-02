@@ -15,6 +15,7 @@ export class NewTaskComponent {
   enteredTitle = signal('');
   enteredSummary = signal('');
   enteredDate = signal('');
+  submitted = false;
   private tasksService = inject(TasksService);
   private router = inject(Router)
 
@@ -27,6 +28,7 @@ export class NewTaskComponent {
       },
       this.userId()
     );
+    this.submitted = true;
     //la navegación programática en Angular se refiere al proceso de cambiar la vista o ruta en tu aplicación mediante código, en lugar de hacerlo a través de enlaces estáticos o botones en la interfaz de usuario.
     this.router.navigate(['/users', this.userId(), 'tasks'], {
       replaceUrl: true, //Normalmente, cuando navegas a una nueva ruta sin replaceUrl, Angular agrega una nueva entrada en el historial. Esto permite que el usuario vuelva a la ruta anterior usando el botón de retroceso. Si el usuario navega a una nueva ruta con replaceUrl: true, la entrada actual en el historial del navegador se reemplaza con la nueva ruta. Esto implica que cuando el usuario usa el botón de retroceso del navegador, no volverá a la ruta anterior que fue reemplazada que en este caso era la ruta http://localhost:4200/users/u3/tasks/new

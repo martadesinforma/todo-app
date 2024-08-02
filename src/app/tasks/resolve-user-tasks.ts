@@ -12,7 +12,7 @@ export const resolveUserTasks: ResolveFn<Task[]> = (ActivatedRouteSnapshot, Rout
 
   const tasks = tasksService
     .allTasks()
-    .filter((task) => task.userId === ActivatedRouteSnapshot.paramMap.get('userId')) //userTasks contiene una lista de tareas filtradas. Solo se incluyen las tareas cuyo userId coincide con el userId del usuario actual.
+    .filter((task) => task.userId === ActivatedRouteSnapshot.paramMap.get('userId')) //resolveUserTasks contiene una lista de tareas filtradas. Solo se incluyen las tareas cuyo userId coincide con el userId del usuario actual.
   if (order && order === 'asc') {
     tasks.sort((a, b) => (a.id > b.id ? 1 : -1)) //Si el orden no es descendente (por lo tanto, es ascendente), y la id de la tarea a es mayor que la id de la tarea b, coloca b antes que a devolviendo 1. De lo contrario, coloca a antes que b devolviendo -1.
   } else {

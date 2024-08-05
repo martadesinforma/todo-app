@@ -2,7 +2,7 @@ import { Injectable, signal } from '@angular/core';
 
 import { type NewTaskData } from './task/task.model'; //Importa una interfaz
 
-@Injectable({ providedIn: 'root' }) // servicio que está disponible en toda la aplicación
+@Injectable() // El servicio TasksService no está decorado con @Injectable({ providedIn: 'root' }). Esto significa que el servicio no se proporciona automáticamente en el inyector raíz de la aplicación, y por tanto, no se carga al inicio de la aplicación. En lugar de ser proporcionado en el inyector raíz, el TasksService se proporciona dentro del contexto de las rutas secundarias definidas en users.routes.ts. Las rutas secundarias en users.routes.ts se cargan de forma perezosa utilizando loadChildren en las rutas principales (app.routes.ts). Esto significa que el módulo que contiene estas rutas (y por tanto el TasksService) no se carga hasta que el usuario navega a una URL que coincide con /users/:userId. Por lo tanto, debido a que el TasksService no está decorado con @Injectable({ providedIn: 'root' }) y en cambio se proporciona específicamente dentro del contexto de las rutas secundarias que se cargan perezosamente, el servicio TasksService también se carga de forma perezosa junto con esas rutas.
 export class TasksService {
   private tasks = signal([
     {
